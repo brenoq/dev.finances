@@ -1,4 +1,5 @@
 const Modal = {
+    amount: document.querySelector('input#amount'),
     // Código antigo
 
     // open(){
@@ -23,6 +24,19 @@ const Modal = {
             .querySelector('.modal-overlay')
             .classList
             .toggle('active');
+            Form.clearFields();
+    },
+
+    value() {
+        const transactionType = document.getElementById('expense').checked;
+
+        let convertAmount = Modal.amount.value.replace("-", "");
+
+        if (transactionType) {
+            Modal.amount.value = "-" + convertAmount;
+        } else {
+            Modal.amount.value = convertAmount;
+        };
     }
 };
 

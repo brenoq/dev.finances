@@ -103,7 +103,15 @@
                             name="amount"
                             placeholder="0,00"
                         />
-                        <small class="help">Use o sinal - (negativo) para despesas e , (virgula) para casas decimais</small>
+                        <!-- <small class="help">Use o sinal - (negativo) para despesas e , (virgula) para casas decimais</small> -->
+
+                        <div class="radio">
+                            <label for="income">Entrada</label>
+                            <input onclick= "Modal.value()" type="radio" checked type="radio" id="income" name="tipo" value="income">
+                            <label for="expense">Saída</label>
+                            <input onclick= "Modal.value()" type="radio" id="expense" name="tipo" value="expense">
+                        </div>
+
                     </div>
 
                     <div class="input-group">

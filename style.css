@@ -247,6 +247,8 @@ td.expense {
     background: #f0f2f5;
     padding: 2.4rem;
 
+    width: 572px;
+
     position: relative;
     z-index: 10;
 }
@@ -271,7 +273,28 @@ input {
 }
 
 .input-group {
-    margin-top: 0.8rem
+    margin-top: 0.8rem;
+}
+
+.input-group .radio {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 0;
+    margin-top: 0.8rem;
+}
+
+.input-group .radio input {
+    width: 5rem;
+}
+
+.input-group .radio label {
+    opacity: 0.4;
+
+    font-size:small;
 }
 
 .input-group small {
