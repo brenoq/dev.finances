@@ -53,6 +53,8 @@ h2 {
 a {
     color: var(--green);
     text-decoration: none;
+
+    transition: color 0.5s;
 }
 
 a:hover {
@@ -73,6 +75,8 @@ button {
     border-radius: .25rem;
 
     cursor: pointer;
+
+    transition: background 0.5s;
 }
 
 button:hover {
@@ -96,10 +100,14 @@ button:hover {
     justify-content: center;
 
     opacity: 0.6;
+
+    transition: all 0.5s;
 }
 
 .button.cancel:hover {
     opacity: 1;
+
+    background-color: rgba(255, 0, 0, 0.1);
 }
 
 /* Estilização Header */
@@ -108,6 +116,8 @@ header {
     background: #2d4a22;
     padding: 2rem 0 10rem;
     text-align: center;
+
+    border-radius: 0 0 2rem 2rem;
 }
 
 #logo {
@@ -131,7 +141,7 @@ header {
 .card {
     background: white;
     padding: 1.5rem 2rem;
-    border-radius: 0.25rem;
+    border-radius: 1rem;
 
     margin-bottom: 2rem;
 
@@ -194,6 +204,8 @@ table thead th {
 
 table tbody tr {
     opacity: 0.5;
+
+    transition: opacity 0.4s;
 }
 
 table tbody tr:hover {
@@ -215,6 +227,10 @@ td.income {
 
 td.expense {
     color: #e92929;
+}
+
+td img.remove {
+    cursor: pointer;
 }
 
 /* Estlização Modal */
@@ -252,6 +268,46 @@ td.expense {
     position: relative;
     z-index: 10;
 }
+
+/* Estilização snackbar */
+#snackbar {
+    visibility: hidden;
+    background-color: var(--red);
+    color: #fff;
+    text-align: center;
+    border-radius: 0.25rem;
+    padding: 16px;
+    z-index: 1000;
+    bottom: 30px;
+    position: fixed;
+  }
+  
+  #snackbar.show {
+    visibility: visible;
+
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 4.5s;
+    animation: fadein 0.5s, fadeout 0.5s 4.5s;
+  }
+  
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
 
 /* Estlização Form */
 

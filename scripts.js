@@ -24,7 +24,15 @@ const Modal = {
             .querySelector('.modal-overlay')
             .classList
             .toggle('active');
-            Form.clearFields();
+        
+        Form.clearFields();
+
+        document
+            .getElementById('snackbar')
+            .classList
+            .remove('show');
+
+        Modal.check()
     },
 
     value() {
@@ -37,6 +45,17 @@ const Modal = {
         } else {
             Modal.amount.value = convertAmount;
         };
+    },
+
+    check() {
+        let radio = document.getElementsByName('tipo');
+
+        if (Modal.amount.value !== '') {
+            radio.forEach(i => i.disabled = false);
+        } else {
+            radio.forEach(i => i.disabled = true)
+        };
+
     }
 };
 
@@ -115,7 +134,7 @@ const DOM = {
         <td class="${CSSclass}">${amount}</td>
         <td class="date">${transaction.date}</td>
         <td>
-            <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Remover transação">
+            <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Remover transação" class="remove">
         </td>
         `
 
@@ -183,7 +202,7 @@ const Form = {
         const { description, amount, date } = Form.getValues();
         
         if (description.trim() === "" || amount.trim() === "" || date.trim() === "") {
-            throw new Error("Por favor, preencha todos os campos");
+            throw new Error('Por favor, preencha todos os campos!');
         };
     },
 
@@ -220,7 +239,7 @@ const Form = {
 
             Modal.change();
         } catch (error) {
-            alert(error.message);
+            snackbar.show(error.message);
         }
     }
 };
@@ -243,6 +262,18 @@ const app = {
         app.init();
     },
 };
+
+const snackbar = {
+    show (inf) {
+        let message = document.getElementById('snackbar_message');
+        const x = document.getElementById('snackbar');
+    
+        message.innerHTML = inf;
+        x.className = 'show';
+
+        setTimeout(() => x.classList.remove('show'), 5000);
+    },
+  }
 
 app.init();
 

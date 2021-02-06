@@ -97,6 +97,7 @@
                             Valor
                         </label>
                         <input 
+                            onkeyup="Modal.check()"
                             type="number"
                             step="0.01"
                             id="amount"
@@ -107,9 +108,9 @@
 
                         <div class="radio">
                             <label for="income">Entrada</label>
-                            <input onclick= "Modal.value()" type="radio" checked type="radio" id="income" name="tipo" value="income">
+                            <input onclick= "Modal.value()" type="radio" checked type="radio" id="income" name="tipo" value="income" disabled>
                             <label for="expense">Saída</label>
-                            <input onclick= "Modal.value()" type="radio" id="expense" name="tipo" value="expense">
+                            <input onclick= "Modal.value()" type="radio" id="expense" name="tipo" value="expense" disabled>
                         </div>
 
                     </div>
@@ -133,6 +134,10 @@
 
                 </form>
             </div>
+        </div>
+
+        <div id="snackbar" class="">
+            <p id="snackbar_message">Mensagem</p>
         </div>
     </div>
 
